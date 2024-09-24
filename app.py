@@ -7,9 +7,15 @@ pt = pickle.load(open('pt.pkl','rb'))
 books = pickle.load(open('books.pkl','rb'))
 similarity_scores = pickle.load(open('similarity_scores.pkl','rb'))
 
-app = Flask(__name__)
+#app = Flask(__name__)
+
+app = Flask(__name__, static_folder='.', static_url_path='')
 
 @app.route('/')
+def home():
+    return app.send_static_file('index.html')
+
+@app.route('/home')
 def index():
     return render_template('index.html',
                            book_name = list(popular_df['Book-Title'].values),
