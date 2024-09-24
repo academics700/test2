@@ -9,7 +9,7 @@ similarity_scores = pickle.load(open('similarity_scores.pkl','rb'))
 
 #app = Flask(__name__)
 
-app = Flask(__name__, static_folder='.', static_url_path='')
+app = Flask(__name__)
 
 @app.route('/')
 def home():
