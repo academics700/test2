@@ -13,10 +13,6 @@ app = Flask(__name__, static_folder='.', static_url_path='')
 
 @app.route('/')
 def home():
-    return app.send_static_file('index.html')
-
-@app.route('/home')
-def index():
     return render_template('index.html',
                            book_name = list(popular_df['Book-Title'].values),
                            author=list(popular_df['Book-Author'].values),
